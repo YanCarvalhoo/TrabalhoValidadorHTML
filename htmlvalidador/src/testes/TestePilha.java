@@ -1,0 +1,6 @@
+package testes;
+
+class TestePilha {
+
+	
+}
