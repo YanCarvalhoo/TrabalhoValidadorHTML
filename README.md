@@ -1,91 +1,113 @@
-# 🔎 TrabalhoValidadorHTML
+# 🔎 Validador e Analisador de HTML
 
-Projeto desenvolvido para análise estrutural de arquivos HTML, com validação de tags, detecção de erros, cálculo de estatísticas e visualização da hierarquia do documento.
+Projeto acadêmico desenvolvido para análise estrutural de arquivos HTML, com foco em validação de tags, detecção de erros, geração de estatísticas, visualização hierárquica e interface gráfica.
 
 ---
 
 ## 🎯 Objetivo
 
-Desenvolver um sistema capaz de:
+O sistema tem como objetivo analisar arquivos HTML e verificar:
 
-- Validar a estrutura de arquivos HTML
-- Verificar se as tags estão corretamente balanceadas
-- Identificar erros estruturais
-- Gerar estatísticas de uso de tags
-- Exibir a hierarquia do documento HTML
-- Produzir um relatório completo da análise
+- Se as tags estão corretamente balanceadas
+- Se a estrutura do HTML é válida
+- Se existem erros estruturais
+- A frequência de cada tag
+- A hierarquia do documento HTML
+- Geração de um relatório completo da análise
 
 ---
 
 ## ⚙️ Funcionalidades
 
 ### ✔ Validação de HTML
-- Uso obrigatório de **Pilha**
-- Verificação de abertura e fechamento de tags
-- Suporte a tags singleton (ex: `img`, `br`, `meta`, etc.)
+- Uso obrigatório de **Pilha (Stack)**
+- Verificação de tags de abertura e fechamento
+- Suporte a tags singleton (ex: `img`, `br`, `meta`, `hr`, etc.)
 - Ignora diferenças entre maiúsculas e minúsculas
-- Ignora atributos das tags
+- Ignora atributos das tags (ex: `<a href="">` → considera apenas `a`)
 
 ---
 
 ### ❌ Identificação de erros
 
-O sistema deve identificar:
+O sistema identifica obrigatoriamente:
 
 - Tag final inesperada  
+  Ex: `</body>` quando era esperado `</p>`
+
 - Tag final sem abertura  
+  Ex: `</p>` sem `<p>` correspondente
+
 - Tags não finalizadas  
+  Ex: `<div>` sem `</div>`
+
 - Tag malformada  
+  Ex: `< div>` ou `<a href`
 
 ---
 
 ### 📊 Estatísticas de tags
 
-- Frequência de cada tag
-- Tipo da tag (normal ou singleton)
+- Frequência de cada tag (sem contar fechamentos)
+- Tipo da tag:
+  - normal
+  - singleton
 - Linha da primeira ocorrência
-- Ordenação alfabética obrigatória (MergeSort)
+- Ordenação obrigatória por **MergeSort**
 
 ---
 
 ### 🌳 Hierarquia do HTML
 
-- Exibição da estrutura em forma de árvore
-- Representação com indentação
-- Só exibida se o HTML estiver válido
+- Representação em formato de árvore
+- Exibição com indentação
+- Só é exibida se o HTML estiver válido
 
 ---
 
 ### 🖥 Interface gráfica
 
-- Seleção de arquivo (.html ou .txt)
-- Exibição do relatório
-- Interface amigável para o usuário
+- Seleção de arquivo `.html` ou `.txt`
+- Execução da análise
+- Exibição de:
+  - erros
+  - estatísticas
+  - hierarquia
+- Interface amigável (Swing ou JavaFX)
 
 ---
 
-## 🧠 Estruturas de Dados utilizadas
+## 🧠 Estruturas de Dados Utilizadas
 
-- **Pilha** → validação de tags
-- **Fila** → armazenamento de erros
-- **Árvore** → hierarquia HTML
-- **Lista** → estatísticas
-- **MergeSort** → ordenação obrigatória
+Este projeto utiliza obrigatoriamente as seguintes estruturas:
+
+- **Pilha (Stack)** → validação de tags HTML
+- **Fila (Queue)** → armazenamento de erros estruturais
+- **Árvore (Tree)** → hierarquia do HTML
+- **Lista** → controle de frequência de tags
+- **MergeSort** → ordenação da tabela de saída
 
 ---
 
 ## 🏗 Arquitetura do Projeto
 
-O sistema foi dividido em módulos:
+O sistema foi organizado em módulos para melhor manutenção e separação de responsabilidades:
 
-- `interface` → interface gráfica
-- `leitura` → leitura e parsing do HTML
+- `principal` → ponto de entrada do sistema
+- `interface` → interface gráfica (UI)
+- `leitura` → leitura e interpretação do arquivo HTML
 - `estruturas` → pilha, fila e nós
 - `analise` → validação, erros e hierarquia
 - `ordenacao` → algoritmo MergeSort
-- `relatorio` → geração de relatório
-- `util` → utilitários e constantes
+- `relatorio` → geração de relatórios finais
+- `modelo` → classes de domínio (Tag, Nó, etc.)
+- `util` → funções auxiliares e constantes
 
+---
+
+## 📁 Estrutura do Projeto
+
+```txt
 html-validador/
 │
 ├── src/
@@ -123,9 +145,9 @@ html-validador/
 │   ├── relatorio/
 │   │   └── GeradorRelatorio.java
 │
-│   └── util/
-│       ├── UtilTags.java
-│       └── Constantes.java
+│   ├── util/
+│   │   ├── UtilTags.java
+│   │   └── Constantes.java
 │
 ├── recursos/
 │   ├── exemplos/
@@ -143,13 +165,14 @@ html-validador/
 │   └── fluxo-validacao.png
 │
 ├── README.md
-└── .gitignore
+├── .gitignore
+└── LICENSE
 
----
-
+```
 
 ## 🚀 Como executar
 
 1. Clone o repositório:
 ```bash
 git clone https://github.com/sua-equipe/html-validador
+
