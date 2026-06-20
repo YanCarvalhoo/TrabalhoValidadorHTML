@@ -86,46 +86,46 @@ O sistema foi dividido em módulos:
 - `relatorio` → geração de relatório
 - `util` → utilitários e constantes
 
-- html-validador/
+html-validador/
 │
 ├── src/
 │   ├── principal/
-│   │   ├── Main.java
-│   │
+│   │   └── Main.java
+│
 │   ├── interface/
-│   │   ├── JanelaPrincipal.java        # Interface gráfica (Swing/JavaFX)
-│   │   ├── SeletorArquivo.java        # Seleção de arquivos HTML/TXT
-│   │   └── VisualizadorRelatorio.java # Exibição do relatório final
-│   │
+│   │   ├── JanelaPrincipal.java
+│   │   ├── SeletorArquivo.java
+│   │   └── VisualizadorRelatorio.java
+│
 │   ├── modelo/
-│   │   ├── Tag.java                   # Representação de uma tag HTML
-│   │   ├── FrequenciaTag.java        # Dados da tabela de frequência
-│   │   └── NoHTML.java               # Nó da hierarquia (árvore)
-│   │
+│   │   ├── Tag.java
+│   │   ├── FrequenciaTag.java
+│   │   └── NoHTML.java
+│
 │   ├── estruturas/
-│   │   ├── Pilha.java                # Pilha para validação
-│   │   ├── Fila.java                 # Fila para erros estruturais
-│   │   └── No.java                   # Nó genérico (se necessário)
-│   │
+│   │   ├── Pilha.java
+│   │   ├── Fila.java
+│   │   └── No.java
+│
 │   ├── leitura/
-│   │   ├── LeitorHTML.java          # Leitura do arquivo linha a linha
-│   │   ├── ParserTags.java          # Identificação de tags e atributos
-│   │   └── ValidadorHTML.java       # Regras de validação
-│   │
+│   │   ├── LeitorHTML.java
+│   │   ├── ParserTags.java
+│   │   └── ValidadorHTML.java
+│
 │   ├── analise/
-│   │   ├── AnalisadorTags.java      # Frequência de tags
-│   │   ├── ConstrutorHierarquia.java# Monta árvore HTML
-│   │   └── AnalisadorErros.java     # Geração de erros estruturais
-│   │
+│   │   ├── AnalisadorTags.java
+│   │   ├── ConstrutorHierarquia.java
+│   │   └── AnalisadorErros.java
+│
 │   ├── ordenacao/
-│   │   └── MergeSort.java          # Algoritmo obrigatório
-│   │
+│   │   └── MergeSort.java
+│
 │   ├── relatorio/
-│   │   └── GeradorRelatorio.java    # Geração do relatório final
-│   │
+│   │   └── GeradorRelatorio.java
+│
 │   └── util/
-│       ├── UtilTags.java            # limpeza, lowercase, etc
-│       └── Constantes.java          # tags singleton e mensagens
+│       ├── UtilTags.java
+│       └── Constantes.java
 │
 ├── recursos/
 │   ├── exemplos/
@@ -143,8 +143,7 @@ O sistema foi dividido em módulos:
 │   └── fluxo-validacao.png
 │
 ├── README.md
-├── .gitignore
-└── LICENSE
+└── .gitignore
 
 ---
 
